@@ -13,7 +13,7 @@ func main() {
 	var kafkaIPAddr string = "192.168.130.143:9092"
 	var kafkaConsumer *KafkaConsumer
 	
-	kafkaConsumer = initKafkaConsumer(kafkaIPAddr)	//1.kafkaConumer初始化
+	kafkaConsumer, err = initKafkaConsumer(kafkaIPAddr)	//1.kafkaConumer初始化
 	isOK, err := kafkaConsumer.KafkaGetMassage(TOPIC)	//2. 获取消息
 	if isOK {	
 		var value Value
