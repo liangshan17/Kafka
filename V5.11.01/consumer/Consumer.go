@@ -14,13 +14,13 @@ type KafkaConsumer struct{
 	msgChan chan *Data
 }
 
-func initKafkaConsumer(kafkaIPAddr string)(*KafkaConsumer){
+func initKafkaConsumer(kafkaIPAddr string)(*KafkaConsumer, err error){
 	var chanSize int32 = 10000
 	kc := &KafkaConsumer{
 		kafkaIPAddr: kafkaIPAddr,
 		msgChan : make(chan * Data, chanSize),
 	}
-	return kc
+	return kc, nil
 }
 
 /*
